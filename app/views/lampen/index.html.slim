@@ -1,0 +1,95 @@
+.container
+    .row 
+        .col-xl-10.offset-xl-1
+            .row 
+                .col-10 
+                    = simple_form_for(@felveszem) do |f|
+                        = f.error_notification
+                        = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+                        .form-inputs
+                            = f.input :content
+                            = f.hidden_field :link, value: "lampen" 
+
+                        .form-actions
+                            = f.button :submit     
+                        
+                - @lampen.each_with_index do |lamp, index|
+                
+                    h1 
+                        = index+1 
+                    br
+                    = lamp.content.html_safe
+                    hr
+            .row
+                .col-12.text-center
+                    h1 
+                        b Lampenmontagen
+
+            .row 
+                .col-4
+                    =image_tag "lampen_img2.jpg", class: "img-fluid"
+                .col-6 
+                    .row 
+                        .col-12
+                            |Lampenmontage, ist das erstes was man denk nachden Jemand sein Libliengslampe gekauft hatte.
+                            |Bestimmt, wenn diese Lampe etwas höcherwertiger als ein simples IKEA Lampe für einen Zwanziger.
+                            |Egal Ihre Lampe kostet nur ein Zwanziger, oder einen OCCIO für mehrere tausender,  wir montieren es mit grösstem Sorgfalt.
+                        .col-12
+            .row.border-2.border-top.border-dark.mt-2.pt-2
+                .col-4
+                    .col-12 
+                        |Lampenschirmen, handgemacht von einen Keramiker. Modernes Form, estethisches Warmes Licht.
+                        |Gemütliches HOME   
+                    .col-12
+                        =image_tag "lampen_img3.jpg", class: "img-fluid"
+                .col-4 
+                    =image_tag "lampen_img4.jpg", class: "img-fluid"
+                .col-4 
+                    =image_tag "lampen_img5.jpg", class: "img-fluid"
+            .row.border-2.border-top.border-dark.mt-2.pt-2
+                .col-12 
+                    |Modernisisierungen fällig? Sie erhalten von uns preiswerte LED-Spots, egal welcher Typ! (z.B. E-14, E-27, GU-10) – in meinem Montage- und Servicewagen ist fast immer alles vorhanden!
+                .col-6 
+                    =image_tag "lampen_img6.jpg", class: "img-fluid"
+                .col-6 
+                    |Beispiel​
+                    br
+                    |Im Winter brennen 5 Stück 50 Watt-Halogenspots ca. 7 Stunden lang von 15 Uhr bis 22 Uhr. Somit verbrauchen diese 1750 Watt pro Tag
+                    br
+                    |In 30 Tagen sind das über 50 Kilowatt!​
+                    br
+                    |LED-Lampen leisten spielend das Gleiche Lichtleistung mit nur 6.5 Kilowatt in 30 Tagen​
+                    br
+                    |Halogenspot;  50 Kilowatt = CHF 15.00
+                    |LED-Spots;     6.5 Kilowatt = CHF 2.00
+                    |​…in einem Jahr sparen Sie
+                    |über 150 Franken!
+            .row
+                .col-8
+                    |für spezielle Fälle, wo nur beschränktes Platz vorhanden
+                    |Miniatur oder Superflach-Spots
+                    br
+                    =image_tag "lampen_img7.jpg", class: "img-fluid"
+                .col-4
+                    |Als Ambientlicht ;
+                    |Fullspectrum-LED
+                    br
+                    =image_tag "lampen_img8.jpg", class: "img-fluid"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
