@@ -25,5 +25,25 @@
     <%= render "shared/menu" %>
     <div class="container pt-4">
     <%= yield %>
+    <button id="backToTop" class="btn btn-link"><i class="bi bi-arrow-up-circle" style="font-size: 2rem; color: black;"></i></button>
+    </div>
+    <script>
+        // A gomb eleme
+        const backToTopButton = document.getElementById('backToTop');
+
+        // Az ablak görgetési eseményének kezelése
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                backToTopButton.style.display = "block"; // Gomb megjelenítése
+            } else {
+                backToTopButton.style.display = "none"; // Gomb elrejtése
+            }
+        };
+
+        // A gomb kattintási eseményének kezelése
+        backToTopButton.onclick = function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' }); // Görgetés az oldal tetejére simán
+        };
+    </script>
   </body>
 </html>
