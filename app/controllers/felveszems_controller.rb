@@ -38,11 +38,10 @@ class FelveszemsController < ApplicationController
   def update
     respond_to do |format|
       if @felveszem.update(felveszem_params)
-        format.html { redirect_to felveszem_url(@felveszem), notice: "Felveszem was successfully updated." }
-        format.json { render :show, status: :ok, location: @felveszem }
+        format.html { redirect_to request.referrer || felveszem_url(@felveszem), notice: "Felveszem was successfully updated." }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @felveszem.errors, status: :unprocessable_entity }
+        
       end
     end
   end
@@ -65,6 +64,6 @@ class FelveszemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def felveszem_params
-      params.require(:felveszem).permit(:content)
+      params.require(:felveszem).permit(:content, :link , :sorrend)
     end
 end

@@ -9,18 +9,26 @@
 
                         .form-inputs
                             = f.input :content
+                        .form-inputs
+                            = f.input :sorrend
                             = f.hidden_field :link, value: "lampen" 
 
                         .form-actions
                             = f.button :submit     
                         
                 - @lampen.each_with_index do |lamp, index|
-                
-                    h1 
-                        = index+1 
+                    h1 Sorrend:
+                    = lamp.sorrend
                     br
                     = lamp.content.html_safe
                     hr
+            hr/
+            hr/
+            h1 Eddig tart a generált tartalom
+            h2 Innentől statikus
+            hr/
+            hr/
+
             .row
                 .col-12.text-center
                     h1 
