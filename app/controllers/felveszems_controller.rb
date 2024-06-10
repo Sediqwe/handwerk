@@ -25,7 +25,7 @@ class FelveszemsController < ApplicationController
 
     respond_to do |format|
       if @felveszem.save
-        format.html { redirect_to felveszem_url(@felveszem), notice: "Felveszem was successfully created." }
+        format.html { redirect_to request.referrer || felveszem_url(@felveszem), notice: "Felveszem was successfully created." }
         format.json { render :show, status: :created, location: @felveszem }
       else
         format.html { render :new, status: :unprocessable_entity }
