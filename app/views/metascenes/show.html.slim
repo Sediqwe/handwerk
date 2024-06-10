@@ -1,0 +1,10 @@
+p style="color: green" = notice
+
+== render @metascene
+
+div
+  => link_to "Edit this metascene", edit_metascene_path(@metascene)
+  '|
+  =< link_to "Back to metascenes", metascenes_path
+
+  = button_to "Destroy this metascene", @metascene, method: :delete

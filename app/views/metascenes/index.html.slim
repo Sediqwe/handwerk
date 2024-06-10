@@ -1,0 +1,11 @@
+p style="color: green" = notice
+
+h1 Metascenes
+
+#metascenes
+  - @metascenes.each do |metascene|
+    == render metascene
+    p
+      = link_to "Show this metascene", metascene
+
+= link_to "New metascene", new_metascene_path

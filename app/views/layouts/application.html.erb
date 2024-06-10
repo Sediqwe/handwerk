@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Techno4</title>
+    <title>Techno - immoservice 2024</title>
     <script src="https://cdn.tiny.cloud/1/7ytn400eljk9hmq4o741s2s6hljkek9ydpv83ip40gs2q12w/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
 
@@ -13,7 +13,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+<body class="bg-success">
   |
     <script>
       tinymce.init({
@@ -22,6 +22,8 @@
         toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
       });
     </script>
+    <%= render "shared/menu" %>
+    <div class="container pt-4">
     <%= yield %>
   </body>
 </html>

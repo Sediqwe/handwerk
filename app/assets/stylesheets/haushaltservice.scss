@@ -1,0 +1,34 @@
+.size{
+    font-size: 120px;
+}
+@media (max-width: 576px) { /* Bootstrap sm breakpoint */
+    .size {
+        font-size: 24px; /* Adjust the font-size for smaller screens */
+    }
+}
+@media (max-width: 768px) { /* Bootstrap sm breakpoint */
+    .size {
+        font-size: 14px; /* Adjust the font-size for smaller screens */
+    }
+}
+.color{
+    color: red;
+}
+.style {
+    font-style: italic;
+  }
+  ul.custom-list {
+    list-style-type: none;
+    color: blue;
+    font-size:42px;
+    
+}
+ul.custom-list li::before {
+    content: '*';
+    margin-right: 8px;
+    
+}
+.rounded-custom {
+    border-radius: 80px; /* Állítsd be az értéket igény szerint */
+    padding-right: 40px;
+}
