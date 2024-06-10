@@ -1,0 +1,2 @@
+class Felveszem < ApplicationRecord
+end

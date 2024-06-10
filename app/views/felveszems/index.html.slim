@@ -1,0 +1,11 @@
+p style="color: green" = notice
+
+h1 Felveszems
+
+#felveszems
+  - @felveszems.each do |felveszem|
+    == render felveszem
+    p
+      = link_to "Show this felveszem", felveszem
+
+= link_to "New felveszem", new_felveszem_path

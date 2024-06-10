@@ -1,0 +1,14 @@
+= form_with(model: felveszem) do |form|
+  - if felveszem.errors.any?
+    div style="color: red"
+      h2 = "#{pluralize(felveszem.errors.count, "error")} prohibited this felveszem from being saved:"
+      ul
+        - felveszem.errors.each do |error|
+          li = error.full_message
+
+  div
+    = form.label :content, style: "display: block"
+    = form.text_area :content
+
+  div
+    = form.submit

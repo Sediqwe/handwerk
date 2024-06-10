@@ -1,0 +1,10 @@
+p style="color: green" = notice
+
+== render @felveszem
+
+div
+  => link_to "Edit this felveszem", edit_felveszem_path(@felveszem)
+  '|
+  =< link_to "Back to felveszems", felveszems_path
+
+  = button_to "Destroy this felveszem", @felveszem, method: :delete
