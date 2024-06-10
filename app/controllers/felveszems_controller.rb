@@ -51,7 +51,7 @@ class FelveszemsController < ApplicationController
     @felveszem.destroy
 
     respond_to do |format|
-      format.html { redirect_to felveszems_url, notice: "Felveszem was successfully destroyed." }
+      format.html { redirect_to request.referrer , notice: "Felveszem was successfully destroyed." }
       format.json { head :no_content }
     end
   end
