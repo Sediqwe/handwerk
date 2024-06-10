@@ -17,11 +17,17 @@
                             = f.button :submit     
                         
                 - @lampen.each_with_index do |lamp, index|
-                    h1 Sorrend:
-                    = lamp.sorrend
+                    h1 
+                        |Sorrend:
+                        = lamp.sorrend
                     br
                     = lamp.content.html_safe
                     hr
+                    .row.bg-secondary.p-3.text-center.border-1.border.rounded-3.border-warning
+                        .col
+                            = link_to "Szerkesztés", edit_felveszem_path(lamp), class: "btn btn-success"
+                        .col
+                            = button_to  "Törlés", felveszem_path(lamp), method: "delete", class: "btn btn-danger"
             hr/
             hr/
             h1 Eddig tart a generált tartalom
