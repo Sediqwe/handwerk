@@ -13,14 +13,14 @@ html
   body.bg-success
     = render "shared/menu"
     .container.pt-4
-      - if !current_user.present?
-        = link_to 'Belépés', new_user_session_path 
-      - else
-        = button_to 'Kilépés', destroy_user_session_path, method: "delete"
-      p.notice
-        = notice
-      p.alert
-        = alert
+      - if current_user.present?
+        = button_to 'Kilépés', destroy_user_session_path, method: "delete", class: "btn btn-danger"
+      - if notice.present?
+        p.notice
+          = notice
+      - if alert.present?
+        p.alert
+          = alert
       = yield
       button#backToTop.btn.btn-link
         i.bi.bi-arrow-up-circle[style="font-size: 2rem; color: black;"]
