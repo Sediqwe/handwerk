@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
+  devise_scope :user do
+    get "/admin" => "devise/sessions#new"
+  end
+    
   get 'servicedienst', to: "servicedienst#index"
   get 'renovationen', to: 'renovationen#index'
   get 'antennen', to: "antenne#index"

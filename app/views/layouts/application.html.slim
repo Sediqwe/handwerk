@@ -1,0 +1,79 @@
+doctype html
+html
+  head
+    title
+      | Techno - immoservice 2024
+    script[src="https://cdn.tiny.cloud/1/7ytn400eljk9hmq4o741s2s6hljkek9ydpv83ip40gs2q12w/tinymce/7/tinymce.min.js" referrerpolicy="origin"]
+    link[rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"]
+    meta[name="viewport" content="width=device-width,initial-scale=1"]
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "application", "data-turbo-track": "reload" 
+    = javascript_importmap_tags 
+  body.bg-success
+    = render "shared/menu"
+    .container.pt-4
+      - if !current_user.present?
+        = link_to 'Belépés', new_user_session_path 
+      - else
+        = button_to 'Kilépés', destroy_user_session_path, method: "delete"
+      p.notice
+        = notice
+      p.alert
+        = alert
+      = yield
+      button#backToTop.btn.btn-link
+        i.bi.bi-arrow-up-circle[style="font-size: 2rem; color: black;"]
+    
+    
+      |
+        <script>
+          tinymce.remove(); // Először töröld az esetleges korábbi Tinymce példányokat
+          tinymce.init({
+            selector: 'textarea',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+            image_title: true,
+            automatic_uploads: true,
+            images_upload_url: '/upload_image',
+            file_picker_types: 'image',
+            file_picker_callback: function (cb, value, meta) {
+              var input = document.createElement('input');
+              input.setAttribute('type', 'file');
+              input.setAttribute('accept', 'image/*');
+              input.onchange = function () {
+                var file = this.files[0];
+                var reader = new FileReader();
+                reader.onload = function () {
+                  var id = 'blobid' + (new Date()).getTime();
+                  var blobCache = tinymce.activeEditor.editorUpload.blobCache;
+                  var base64 = reader.result.split(',')[1];
+                  var blobInfo = blobCache.create(id, file, base64);
+                  blobCache.add(blobInfo);
+                  cb(blobInfo.blobUri(), { title: file.name });
+                };
+                reader.readAsDataURL(file);
+              };
+              input.click();
+            }
+          
+        });
+          </script>
+          <script>
+              // A gomb eleme
+              const backToTopButton = document.getElementById('backToTop');
+
+              // Az ablak görgetési eseményének kezelése
+              window.onscroll = function() {
+                  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                      backToTopButton.style.display = "block"; // Gomb megjelenítése
+                  } else {
+                      backToTopButton.style.display = "none"; // Gomb elrejtése
+                  }
+              };
+
+              // A gomb kattintási eseményének kezelése
+              backToTopButton.onclick = function() {
+                  window.scrollTo({ top: 0, behavior: 'smooth' }); // Görgetés az oldal tetejére simán
+              };
+          </script>
