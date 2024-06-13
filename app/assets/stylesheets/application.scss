@@ -45,6 +45,11 @@
   height: 100%;
   object-fit: cover; /* Kép kitöltése az arányok megtartásával */
 }
+.custom-img {
+  max-height: 480px;
+  width: 100%;
+  object-fit: cover;
+}
  h3 {
     font-family: "Times New Roman", Times, serif;
  }
