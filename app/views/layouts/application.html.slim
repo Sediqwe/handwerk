@@ -10,7 +10,7 @@ html
     = csp_meta_tag
     = stylesheet_link_tag "application", "data-turbo-track": "reload" 
     = javascript_importmap_tags 
-  body class="#{ " barna " if current_page?(fliesen_path) || current_page?(renovationen_path) || current_page?(elektro_path)|| current_page?(boden_path) || current_page?(trockenbau_path)   }"
+  body class="#{ " barna " if current_page?(fliesen_path) || current_page?(renovationen_path) || current_page?(elektro_path)|| current_page?(boden_path) || current_page?(trockenbau_path)|| current_page?(installator_path)   }"
     = render "shared/menu"
     .container.pt-4
       - if current_user.present?
