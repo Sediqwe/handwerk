@@ -3,32 +3,52 @@
 }
 @media (max-width: 576px) { /* Bootstrap sm breakpoint */
     .size {
-        font-size: 24px; /* Adjust the font-size for smaller screens */
+        font-size: 40px; /* Adjust the font-size for smaller screens */
     }
 }
 @media (max-width: 768px) { /* Bootstrap sm breakpoint */
     .size {
-        font-size: 14px; /* Adjust the font-size for smaller screens */
+        font-size: 40px; /* Adjust the font-size for smaller screens */
     }
 }
 .color{
     color: red;
 }
 .style {
+    
+    line-height: 1.75;
     font-style: italic;
+    font-weight: 900;
   }
   ul.custom-list {
     list-style-type: none;
     color: blue;
-    font-size:42px;
+    font-size:35px;
     
+}
+.barna{
+    background-color: #CC9900;
 }
 ul.custom-list li::before {
     content: '*';
-    margin-right: 8px;
+    margin-right: 18px;
     
 }
-.rounded-custom {
-    border-radius: 80px; /* Állítsd be az értéket igény szerint */
-    padding-right: 40px;
+@media (min-width: 576px) {
+    .custom-list li {
+        position: relative;
+        margin-left: 0;
+    }
+
+    .custom-list li:nth-child(2) {
+        margin-left: 140px; /* Adjust the value as needed */
+    }
+
+    .custom-list li:nth-child(3) {
+        margin-left: 230px; /* Adjust the value as needed */
+    }
+    .rounded-custom {
+        border-radius: 80px; /* Állítsd be az értéket igény szerint */
+        padding-right: 40px;
+    }
 }

@@ -1,4 +1,4 @@
-nav.navbar.fixed-top.navbar-expand-lg.navbar-dark.bg-dark
+nav.navbar.fixed-top.navbar-expand-lg.navbar-dark.bg-primary
   .container-fluid
     =link_to "T-I", root_path, class:"navbar-brand"    
     button.navbar-toggler[type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
@@ -6,12 +6,12 @@ nav.navbar.fixed-top.navbar-expand-lg.navbar-dark.bg-dark
     #navbarSupportedContent.collapse.navbar-collapse
       ul.navbar-nav.me-auto.mb-2.mb-lg-0
         li.nav-item
-        = link_to "HOME", root_path, class: ("nav-link rounded #{" active text-dark" if current_page?(root_path)}")        
+          = link_to "HOME", root_path, class: ("nav-link text-dark rounded  #{" active text-dark" if current_page?(root_path)}")        
         li.nav-item
-          =link_to "Planungen & 3D Architektur", planung_path,class: ("nav-link rounded #{" active text-dark" if current_page?(planung_path)}")          
+          =link_to "Planungen & 3D Architektur", planung_path,class: ("nav-link text-dark rounded #{" active text-dark" if current_page?(planung_path)}")          
           
         li.nav-item.dropdown
-          = link_to "Renovationen & Umbau", renovationen_path, {class: "navbarDropdown nav-link dropdown-toggle rounded #{" active text-dark" if current_page?(elektro_path)||current_page?(renovationen_path) ||current_page?(fliesen_path) ||current_page?(boden_path)||current_page?(installator_path) ||current_page?(trockenbau_path) }", id: "navbarDropdown", href: "#", role: "button", data: { bs_toggle: "dropdown" }, aria: { expanded: "false" }}
+          = link_to "Renovationen & Umbau", renovationen_path, {class: "navbarDropdown nav-link text-dark dropdown-toggle rounded #{" active text-dark" if current_page?(elektro_path)||current_page?(renovationen_path) ||current_page?(fliesen_path) ||current_page?(boden_path)||current_page?(installator_path) ||current_page?(trockenbau_path) }", id: "navbarDropdown", href: "#", role: "button", data: { bs_toggle: "dropdown" }, aria: { expanded: "false" }}
           
           ul.dropdown-menu[aria-labelledby="navbarDropdown"]
             li
@@ -30,13 +30,13 @@ nav.navbar.fixed-top.navbar-expand-lg.navbar-dark.bg-dark
             li
               hr.dropdown-divider
             li
-              = link_to "Fliesen verlegen Boden & Wandfliesen", fliesen_path, class: "dropdown-item"                               
+              = link_to "Fliesen verlegen Boden & Wandfliesen", fliesen_path, class: "dropdown-item #{" menuhatter " if current_page?(fliesen_path)}"                             
             li
               hr.dropdown-divider
             li
               = link_to "Trockenbau Wandaufbau  &  Zwischendecken", trockenbau_path, class: "dropdown-item"                               
         li.nav-item.dropdown
-          = link_to "Service & Montagedienstleisstungen", service_path, {class: "navbarDropdown nav-link dropdown-toggle rounded #{" active text-dark" if  current_page?(servicedienst_path) || current_page?(service_path) ||current_page?(netzwerk_path) ||current_page?(lampen_path)||current_page?(vorhang_path) ||current_page?(wasser_path) ||current_page?(antennen_path) }", id: "navbarDropdown", href: "#", role: "button", data: { bs_toggle: "dropdown" }, aria: { expanded: "false" }}
+          = link_to "Service & Montagedienstleisstungen", service_path, {class: "navbarDropdown nav-link text-dark dropdown-toggle rounded #{" active text-dark" if  current_page?(servicedienst_path) || current_page?(service_path) ||current_page?(netzwerk_path) ||current_page?(lampen_path)||current_page?(vorhang_path) ||current_page?(wasser_path) ||current_page?(antennen_path) }", id: "navbarDropdown", href: "#", role: "button", data: { bs_toggle: "dropdown" }, aria: { expanded: "false" }}
           ul.dropdown-menu[aria-labelledby="navbarDropdown"]
             li
               = link_to "Service  &  Montagedienstleisstungen", service_path, class: "dropdown-item"   
@@ -60,7 +60,7 @@ nav.navbar.fixed-top.navbar-expand-lg.navbar-dark.bg-dark
               = link_to "Antennen & Satellitanlagen", antennen_path, class: "dropdown-item"                
                 
         li.nav-item
-          =link_to "Massmöbel & Zusammenbau", moebel_path,class: ("nav-link rounded #{" active text-dark" if current_page?(moebel_path)}")          
+          =link_to "Massmöbel & Zusammenbau", moebel_path,class: ("nav-link text-dark rounded #{" active text-dark" if current_page?(moebel_path)}")          
       
 
           
